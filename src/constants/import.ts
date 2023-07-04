@@ -1,0 +1,5 @@
+const IMPORT_BATCH_SIZE = 20;
+
+const PRODUCT_IMPORT_TYPE = 'product-draft';
+
+export { IMPORT_BATCH_SIZE, PRODUCT_IMPORT_TYPE };

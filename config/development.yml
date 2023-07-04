@@ -1,0 +1,12 @@
+ENVIRONMENT: Development
+LOG_LEVEL: 'info'
+COMMERCE_TOOL_AUTH_URL: https://auth.europe-west1.gcp.commercetools.com/
+COMMERCE_TOOL_API_HOST: https://api.europe-west1.gcp.commercetools.com/
+CT_SOURCE_PROJECT_KEY: alamy-staging
+CT_SOURCE_CLIENT_ID: OX8kFHOUi9XYs411HWlsPzeG
+CT_SOURCE_SECRET_NAME: SwkTRvbtsG9utyq15oeULG5zwFoqNLhF
+
+CT_DESTINATION_PROJECT_KEY: meraki-development
+CT_DESTINATION_URL: https://import.europe-west1.gcp.commercetools.com
+CT_DESTINATION_ID: f41xlLe6ll-CmrEjH8ZMdc48
+CT_DESTINATION_SECRET_NAME: UXhogw8HdJi_xBvic--MTQ6SvHF9Ec1L

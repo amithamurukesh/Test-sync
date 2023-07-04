@@ -1,0 +1,39 @@
+service: test
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline
+  - serverless-bundle
+
+provider:
+  name: aws
+  region: 'eu-west-1'
+
+package:
+  individually: true
+
+custom:
+  stage: ${opt:stage, opt:env, "development"}
+  env: ${opt:env, "development"}
+  vars: ${file(config/${opt:stage, "development"}.yml)}
+
+
+functions:
+  test:
+    handler: src/main.handler
+    events:
+      - schedule: cron(0/2 * * * ? *)
+    environment:
+      ENVIRONMENT: ${self:custom.vars.ENVIRONMENT}
+      LOG_LEVEL: ${self:custom.vars.LOG_LEVEL}
+
+      CT_SOURCE_PROJECT_KEY: ${self:custom.vars.CT_SOURCE_PROJECT_KEY}
+      CT_SOURCE_CLIENT_ID: ${self:custom.vars.CT_SOURCE_CLIENT_ID}
+      CT_SOURCE_SECRET_NAME: ${self:custom.vars.CT_SOURCE_SECRET_NAME}
+
+      CT_DESTINATION_ID: ${self:custom.vars.CT_DESTINATION_ID}
+      CT_DESTINATION_SECRET_NAME: ${self:custom.vars.CT_DESTINATION_SECRET_NAME}
+      CT_DESTINATION_PROJECT_KEY: ${self:custom.vars.CT_DESTINATION_PROJECT_KEY}
+    timeout: 30
+      

@@ -5,7 +5,7 @@ const logLevel = getConfig().logLevel;
 const logger = pino();
 
 const log = logger.child({
-  name: 'commercetools-backup-handler-lambda',
+  name: 'commercetools-production-staging-sync-lambda',
   options: {
     level: logLevel,
   },

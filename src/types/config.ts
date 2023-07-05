@@ -24,7 +24,7 @@ interface Config {
   commerceToolSourceSecretName: string;
   awsRegion: string;
   commerceToolDestinationProjectKey: string;
-  ccommerceToolDestinationClientId: string;
+  commerceToolDestinationClientId: string;
   commerceToolDestinationSecretName: string;
   commercetoolDestinationURL: string;
   

@@ -33,14 +33,16 @@ console.log('destination',destinationProjectKey);
     );
 
     const destinationToken = await getAuthToken(
-      commerceToolDestinationSecret.clientId,
-      commerceToolDestinationSecret.secretName
+      getConfig().commerceToolDestinationClientId,
+      getConfig().commerceToolDestinationSecretName
     );
 
     const sourceToken = await getAuthToken(
-      commerceToolSourceSecret.clientId,
-      commerceToolSourceSecret.secretName
+      getConfig().commerceToolSourceClientId,
+      getConfig().commerceToolSourceSecretName
     );
+    console.log('destinationToken', destinationToken);
+console.log('sourceToken', sourceToken);
 
     const destinationProductTypes = await exportProductTypes(
       destinationToken,
@@ -96,11 +98,17 @@ console.log('destination',destinationProjectKey);
       ${JSON.stringify(standardLicense.data.states)}`
     );
 
-    // const destinationProducts = await exportProducts(
-    //   destinationToken,
-    //   destinationProjectKey
-    // );
-
+    const destinationProducts = await exportProducts(
+      destinationToken,
+      destinationProjectKey
+    );
+    const packsBackupData = await packsImport(
+      products,
+      packsProducts,
+      sourceProductTypes,
+      destinationToken,
+      destinationProducts
+    )
     // const isInitialBackup = destinationProducts.length === 0;
 
     // For initial backup destination products does not exist
@@ -142,14 +150,15 @@ console.log('destination',destinationProjectKey);
       //    // eslint-disable-next-line no-await-in-loop
       //    await timeout(apiCallTimeOut);
       // }
-    // } else {
-    //   const packsBackupData = await packsImport(
-    //     products,
-    //     packsProducts,
-    //     sourceProductTypes,
-    //     destinationToken,
-    //     destinationProducts
-    //   );
+    
+    // else {
+      // const packsBackupData = await packsImport(
+      //   products,
+      //   packsProducts,
+      //   sourceProductTypes,
+      //   destinationToken,
+      //   destinationProducts
+     // );
 
     //   const awsData = [...standardBackupData, ...packsBackupData];
 

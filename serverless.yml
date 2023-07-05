@@ -27,7 +27,8 @@ functions:
     environment:
       ENVIRONMENT: ${self:custom.vars.ENVIRONMENT}
       LOG_LEVEL: ${self:custom.vars.LOG_LEVEL}
-
+      COMMERCE_TOOL_AUTH_URL: ${self:custom.vars.COMMERCE_TOOL_AUTH_URL}
+      COMMERCE_TOOL_API_HOST: ${self:custom.vars.COMMERCE_TOOL_API_HOST}
       CT_SOURCE_PROJECT_KEY: ${self:custom.vars.CT_SOURCE_PROJECT_KEY}
       CT_SOURCE_CLIENT_ID: ${self:custom.vars.CT_SOURCE_CLIENT_ID}
       CT_SOURCE_SECRET_NAME: ${self:custom.vars.CT_SOURCE_SECRET_NAME}

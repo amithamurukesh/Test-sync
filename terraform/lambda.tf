@@ -1,5 +1,5 @@
 locals {
-  name   = "commercetools-backup-handler-lambda-${terraform.workspace}"
+  name   = "commercetools-production-staging-sync-lambda-${terraform.workspace}"
   folder = var.s3_folder != "" ? var.s3_folder : terraform.workspace
 }
 
@@ -21,7 +21,7 @@ module "lambda_function" {
   create_package                    = false
   s3_existing_package = {
     bucket = var.s3_bucket
-    key    = "bundles/commercetools-backup-handler-lambda/${local.folder}/${var.lambda_version}.zip"
+    key    = "bundles/commercetools-production-staging-sync-lambda/${local.folder}/${var.lambda_version}.zip"
   }
   environment_variables = {
     LOG_LEVEL = var.log_level

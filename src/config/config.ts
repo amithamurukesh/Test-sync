@@ -14,7 +14,7 @@ const getConfig = (): Config => {
     commerceToolSourceSecretName: env.CT_SOURCE_SECRET_NAME,
     awsRegion: env.AWS_REGION,
     commerceToolDestinationProjectKey: env.CT_DESTINATION_PROJECT_KEY,
-    ccommerceToolDestinationClientId: env.CT_DESTINATION_ID,
+    commerceToolDestinationClientId: env.CT_DESTINATION_ID,
     commerceToolDestinationSecretName: env.CT_DESTINATION_SECRET_NAME,
     commercetoolDestinationURL: env.CT_DESTINATION_URL,
    } as Config;
